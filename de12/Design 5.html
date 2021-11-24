@@ -15,8 +15,19 @@
    <br>そしてもし自身が入力した数字がコンピューターの出した数字より上３0を上回ってなければ、プレイヤーの勝ちです。
    <br>また、自身の入力した数字がコンピューターの表示する数字より３０を下回ってもプレイヤーの勝ちとなります。
 
-
-    <br><br>※ソースコードに変換できなかったためソースコード無し、変換出来次第載せます。
+<br>ソースコード↓
+    <br><br><code>
+        <ol style="list-style:decimal-leading-zero outside;in-left:0;padding-left:36px;margin:0;background-color:#EEF;color:#000;">
+        <li style="background-color:#EFF;">P1=int(input(<font style="color:brown;">"1~100までの数字を入力してください"</font>))</li>
+        <li style="background-color:#EEF;">import random</li>
+        <li style="background-color:#EFF;">a = random.randint(1, 100)</li>
+        <li style="background-color:#EEF;">print(a)</li>
+        <li style="background-color:#EFF;"></li>
+        <li style="background-color:#EEF;">if P1&gt;a and P1-a&lt;=30:</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;print(<font style="color:brown;">"コンピューターは"</font>,a,<font style="color:brown;">"を出しました。あなたの勝ちです"</font>)</li>
+        <li style="background-color:#EEF;">else:</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;print(<font style="color:brown;">"コンピューターは"</font>,a,<font style="color:brown;">"を出しました。コンピューターの勝ちです"</font>)</li>
+        </ol></code>
 
 
     </div>

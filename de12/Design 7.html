@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <!-- ⑥↓タイトルを変えてみよう -->
+    <title>第7回　デザイン演習</title>
+    <!-- ⑤スタイルシートの設定をしよう -->
+    <!-- h1.htmlからある行をコピペしてくればOK -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+   <h1>データサイエンス</h1><br>
+   <br>
+   <h2>今回の課題では、「住みやすいエリアをデータ分析で紹介」と言うことで、渡されたデータの中にある
+    '名称', 'カテゴリー', 'アドレス', 'アクセス', '路線','駅', 'バス停', '乗換時間', 'バス', 
+    '徒歩', '車', '合計時間', '築年数','構造', '階数', '家賃', '管理費', '敷金', '礼金', '間取り', '面積'
+    の21項目の中から「合計時間」「路線」「家賃」に注目して分析してみた。</h2><br>
+   <br>
+   <br>上位12組を算出し、みなとみらい線が一番、東急東横線が2番目に乗車合計時間が長かった。<br>
+   <img src="images/路線と合計時間のグラフ.png" width="50%"><br>
+   <br>そこから、家賃が安い上位12駅を出し、1位が五反田駅、2位が調布駅。<br>
+   <img src="images/駅と家賃のグラフ.png" width="50%"><br>
+   <br>これらの結果から、「みなとみらい線は高い」と言う理由でみなとみらい線を省き、「五反田は治安が悪い」という話を多くの人から聞いたので省いた。
+   <br>どうやら五反田に関しては夜の営みを目的とした人が多いとかなんとやら。。。、
+   <br><br>これらのことから、勝手ながら調布駅が一番良いのではないかと考えた。
+   <br><h2>結論：調布駅周辺をお勧めする</h2>
+   <br>※五反田と場所めっちゃ離れてるけど
+
+
+    <br><br>加えて、先生からは許可していただけたからよかったものの、おすすめするエリアの範囲を誤認してたことをプレゼンが終わって知りました。
+<br><br><br>
+<br><br>ソースコード↓
+<br><code>
+    <ol style="list-style:decimal-leading-zero outside;in-left:0;padding-left:36px;margin:0;background-color:#EEF;color:#000;">
+    <li style="background-color:#EFF;">import pandas as pd</li>
+    <li style="background-color:#EEF;">import matplotlib.pyplot as plt</li>
+    <li style="background-color:#EFF;">pd.set_option(<font style="color:brown;">'display.unicode.east_asian_width'</font>, True)</li>
+    <li style="background-color:#EEF;">plt.rcParams[<font style="color:brown;">'font.family'</font>] = <font style="color:brown;">'IPAexGothic'</font></li>
+    <li style="background-color:#EFF;">plt.rcParams[<font style="color:brown;">'font.size'</font>]=9</li>
+    <li style="background-color:#EEF;">data_path = <font style="color:brown;">"data.csv"</font></li>
+    <li style="background-color:#EFF;">df_data = pd.read_csv(data_path, encoding=<font style="color:brown;">"utf-8-sig"</font>)</li>
+    <li style="background-color:#EEF;"></li>
+    <li style="background-color:#EFF;">print(df_data.columns)</li>
+    <li style="background-color:#EEF;">print(df_data[<font style="color:brown;">"合計時間"</font>].describe())</li>
+    <li style="background-color:#EFF;">print(df_data.groupby(<font style="color:brown;">"路線"</font>).mean().loc[:,<font style="color:brown;">"合計時間"</font>].sort_values()[:12])</li>
+    <li style="background-color:#EEF;">df_data.groupby(<font style="color:brown;">"路線"</font>).mean().loc[:,<font style="color:brown;">"合計時間"</font>].sort_values()[:12].plot.bar(figsize = (12, 8))</li>
+    <li style="background-color:#EFF;">plt.subplots_adjust(left=0.02, right=0.98,bottom=0.3)</li>
+    <li style="background-color:#EEF;">plt.show()</li>
+    <li style="background-color:#EFF;"></li>
+    <li style="background-color:#EEF;">print(df_data.groupby(<font style="color:brown;">"路線"</font>).mean().loc[:,<font style="color:brown;">"家賃"</font>].sort_values()[:12])</li>
+    <li style="background-color:#EFF;">df_data.groupby(<font style="color:brown;">"駅"</font>).mean().loc[:,<font style="color:brown;">"家賃"</font>].sort_values()[:12].plot.bar(figsize = (12, 8))</li>
+    <li style="background-color:#EEF;">plt.subplots_adjust(left=0.02, right=0.98,bottom=0.3)</li>
+    <li style="background-color:#EFF;">plt.show()</li>
+    </ol></code>
+
+    </div>
+
+</body>
+</html>
