@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    
+    <title>第三回デザイン演習Ⅲ・Ⅳのまとめ</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>第二回デザイン演習Ⅲ・Ⅳのまとめ</h1>
+    <br>
+    <br>今回の授業では「モーター」をテーマに授業が進められた。
+    <br>
+    <br><h2>Arudinoでモーターを動かす</h2>
+    <br>
+    <br>
+    <br>↓モーターを動かしながら行き着いたソースコード
+    <br>
+    <br><code>
+        <ol style="list-style:decimal-leading-zero outside;in-left:0;padding-left:36px;margin:0;background-color:#EEF;color:#000;">
+        <li style="background-color:#EFF;">const int DIR  = 8;</li>
+        <li style="background-color:#EEF;">const int STEP = 9;</li>
+        <li style="background-color:#EFF;"></li>
+        <li style="background-color:#EEF;">void setup() {</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;pinMode(DIR, OUTPUT);</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;pinMode(STEP, OUTPUT);</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;digitalWrite(DIR, LOW);</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;digitalWrite(STEP, LOW);</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;Serial.begin(9600);</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;pinMode(13,OUTPUT);</li>
+        <li style="background-color:#EFF;">}</li>
+        <li style="background-color:#EEF;"></li>
+        <li style="background-color:#EFF;"></li>
+        <li style="background-color:#EEF;">void clockwise(int delaytime){</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;digitalWrite(DIR, HIGH);<font style="color:green;font-style:italic;">//HIGHは時計回り</font></li>
+        <li style="background-color:#EEF;"></li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;digitalWrite(STEP, HIGH);</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;delayMicroseconds(delaytime);</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;digitalWrite(STEP, LOW);</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;delayMicroseconds(delaytime);</li>
+        <li style="background-color:#EFF;"></li>
+        <li style="background-color:#EEF;">}</li>
+        <li style="background-color:#EFF;"></li>
+        <li style="background-color:#EEF;">void counter_clockwise(int delaytime){</li>
+        <li style="background-color:#EFF;"></li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;digitalWrite(DIR, LOW);<font style="color:green;font-style:italic;">//はLOWは反時計回り</font></li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;digitalWrite(STEP, HIGH);</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;delayMicroseconds(delaytime);</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;digitalWrite(STEP, LOW);</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;delayMicroseconds(delaytime);</li>
+        <li style="background-color:#EFF;">}</li>
+        <li style="background-color:#EEF;"></li>
+        <li style="background-color:#EFF;">void loop() {</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;int interval=0;</li>
+        <li style="background-color:#EFF;">int val=0;</li>
+        <li style="background-color:#EEF;">val=analogRead(1);</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;Serial.println(val);</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;if(val&lt;200){</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;digitalWrite(8,LOW);</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;for (int i=0; i &lt;= 50; i++){</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;clockwise(600);}</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;}</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else{</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;digitalWrite(8,HIGH);</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;for (int i=0; i &lt;= 50; i++){</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;counter_clockwise(600);}</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(13,HIGH);</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;delay(50);</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;digitalWrite(13,LOW);</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;delay(50);</li>
+        <li style="background-color:#EFF;">}</li>
+        <li style="background-color:#EEF;">}</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;</li>
+        </ol></code>
+        <br>
+        <br>
+        <br>
+        <br><br><img src="images/motor_set.png" width="30%"><br>
+        <br>
+        <br>
+        <br>
+        <br><h2>↓ソースコードがする動きを納めただけの動画</h2>
+        <br>
+        <br><a href="https://youtube.com/shorts/aUAgs046YbE?feature=share" target="_blank">ソースコードがする動きの動画</a>
+        <br>
+
+    </div>
+
+</body>
+</html>

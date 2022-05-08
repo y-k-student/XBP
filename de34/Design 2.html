@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    
+    <title>第二回デザイン演習Ⅲ・Ⅳのまとめ</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>第二回デザイン演習Ⅲ・Ⅳのまとめ</h1>
+<br>
+<br>今回の授業では「光を操る」をテーマに授業が進められた。
+<br>そして、多くの例等を見せてもらい、実際Arudinoを使い「NeoPixel」という物に対してのプログラムをする機会が設けられた。
+<br>
+<br>ここで、私は「紫」「黄色」「赤」「緑」「青」の色を順に定め、その色になりそうな値をそれぞれとりつつランダムにするという、
+<br>文面にすると訳のわからないものを作ってしまった。
+<br>
+<br>そのプログラムのコードが下記にある物だ。
+<br>
+<br><h3>作成したプログラムのソースコード↓</h3>
+<br><code>
+    <ol style="list-style:decimal-leading-zero outside;in-left:0;padding-left:36px;margin:0;background-color:#EEF;color:#000;">
+    <li style="background-color:#EFF;">#include &lt;Adafruit_NeoPixel.h&gt;</li>
+    <li style="background-color:#EEF;">#define PIN        9 <font style="color:green;font-style:italic;">// 信号用のピンを指定</font></li>
+    <li style="background-color:#EFF;">#define NUMPIXELS 5 <font style="color:green;font-style:italic;">// LEDの数を指定</font></li>
+    <li style="background-color:#EEF;">int brightness=10;<font style="color:green;font-style:italic;">//明るさ</font></li>
+    <li style="background-color:#EFF;"></li>
+    <li style="background-color:#EEF;">Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);</li>
+    <li style="background-color:#EFF;"></li>
+    <li style="background-color:#EEF;">void setup() {</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;pixels.begin(); <font style="color:green;font-style:italic;">// NeoPixel出力ピンの初期化</font></li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;pixels.setBrightness(brightness);</li>
+    <li style="background-color:#EFF;">}</li>
+    <li style="background-color:#EEF;"></li>
+    <li style="background-color:#EFF;">void loop() {</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;int randNumber=random(95,125);</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;int randNumber2=random(0,30);</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;int randNumber3=random(200,225);</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;int randNumber4=random(0,50);</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;int randNumber5=random(200,255);</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;int randNumber6=random(200,255);</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;int randNumber7=random(230,255);</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;int randNumber8=random(0,120);</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;int randNumber9=random(0,115);</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;int randNumber10=random(0,55);</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;int randNumber11=random(220,255);</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;int randNumber12=random(0,55);</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;int randNumber13=random(50,255);</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;int randNumber14=random(70,105);</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;int randNumber15=random(210,255);</li>
+    <li style="background-color:#EEF;"></li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pixels.begin(); <font style="color:green;font-style:italic;">// NeoPixel出力ピンの初期化</font></li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;pixels.clear(); <font style="color:green;font-style:italic;">// すべてのLEDの色を0にセット</font></li>
+    <li style="background-color:#EFF;"></li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;for(int i=0; i&lt;1; i++) {    </li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;pixels.setPixelColor(i, pixels.Color(randNumber, randNumber2, randNumber3));</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;pixels.show();</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;delay(100);</li>
+    <li style="background-color:#EEF;"></li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;for(int i=1; i&lt;2; i++){</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;pixels.setPixelColor(i, pixels.Color(randNumber4, randNumber5, randNumber6));</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;pixels.show();</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;delay(100);</li>
+    <li style="background-color:#EFF;"></li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(int i=2; i&lt;3; i++){</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;pixels.setPixelColor(i, pixels.Color(randNumber7, randNumber8, randNumber9));</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;pixels.show();</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;delay(100);</li>
+    <li style="background-color:#EEF;"></li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(int i=3; i&lt;4; i++){</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;pixels.setPixelColor(i, pixels.Color(randNumber10, randNumber11, randNumber12));</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;pixels.show();</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;delay(100);</li>
+    <li style="background-color:#EFF;"></li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;for(int i=4; i&lt;5; i++) {</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;pixels.setPixelColor(i, pixels.Color(randNumber13, randNumber14, randNumber15));</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;pixels.show();</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;delay(100);</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;}</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;}</li>
+    <li style="background-color:#EFF;">}</li>
+    </ol></code>
+    <br>
+    <br>
+    <br>
+    <br>
+<br>
+<br>
+<br><h2>グループワーク/ディスカッションまとめ</h2>
+<br>
+<br>6班で話し合った結果
+<br>
+<br>
+<br>【正の感情】
+<br><br><img src="images/de34_2_postit2.jpg" width="30%"><br>
+<br>上記のような結果になった。
+<br>状況として、「考えなくても良い/リラックス」「健康体」といった話でまとまった。
+<br>
+<br>
+<br>また、
+<br>【負の感情】
+<br><img src="images/de34_1_postit2.jpg" width="30%"><br>
+<br>上記のこの結果から、個人的にどれも「不安」から全て来てるような気がしてならない。。。
+<br>
+<br>
+<br>
+<br>
+<br><h3>POVまとめ</h3>
+<br><img src="images/de34_2_POV.png" width="30%"><br>
+
+    </div>
+
+</body>
+</html>
